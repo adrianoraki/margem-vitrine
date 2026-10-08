@@ -1,0 +1,31 @@
+{
+  "name": "@margem/core",
+  "version": "0.1.0",
+  "private": true,
+  "license": "UNLICENSED",
+  "description": "Tipos do banco, cliente do PNCP, validações Zod e regras puras compartilhadas entre web, app e jobs.",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./pncp": "./src/pncp/index.ts",
+    "./supabase": "./src/supabase/index.ts",
+    "./supabase/servidor": "./src/supabase/servidor.ts",
+    "./dfe": "./src/dfe/index.ts"
+  },
+  "scripts": {
+    "lint": "eslint . --max-warnings=0",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "gen:types": "supabase gen types typescript --project-id \"$SUPABASE_PROJECT_ID\" --schema core,licita,compras > src/database.types.ts"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.117.2",
+    "fast-xml-parser": "^5.11.1",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.9.3",
+    "vitest": "^5.0.2"
+  }
+}

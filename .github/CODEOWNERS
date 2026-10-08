@@ -1,0 +1,6 @@
+# Toda mudança pede revisão do dono. Migrations, workflows e a função do certificado,
+# em especial, nunca entram sem olhar humano.
+*                                   @adrianoraki
+/supabase/                          @adrianoraki
+/.github/                           @adrianoraki
+/supabase/functions/certificado-upload/ @adrianoraki

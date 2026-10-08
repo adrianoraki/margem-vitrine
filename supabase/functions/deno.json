@@ -1,0 +1,8 @@
+{
+  "compilerOptions": { "strict": true },
+  "lint": { "rules": { "tags": ["recommended"] } },
+  "imports": {
+    "@supabase/supabase-js": "npm:@supabase/supabase-js@2.117.2",
+    "node-forge": "npm:node-forge@1.3.1"
+  }
+}

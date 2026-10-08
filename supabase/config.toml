@@ -1,0 +1,35 @@
+# Configuração do Supabase CLI para desenvolvimento local (`supabase start`).
+# O projeto remoto deve ser criado na região sa-east-1 (São Paulo) — docs/lgpd.md.
+project_id = "margem"
+
+[api]
+# Esquemas expostos pela API REST. `public` fica de fora: nada do Margem mora lá.
+# No projeto remoto: Settings → API → Exposed schemas = core, licita, compras.
+schemas = ["core", "licita", "compras"]
+extra_search_path = ["extensions"]
+max_rows = 1000
+
+[db]
+major_version = 17
+
+[auth]
+site_url = "http://localhost:3000"
+additional_redirect_urls = ["http://localhost:3000/auth/callback"]
+enable_signup = true
+
+[auth.email]
+enable_signup = true
+enable_confirmations = true
+
+[functions.certificado-upload]
+verify_jwt = true
+
+# Templates de e-mail: link no formato token_hash (funciona em qualquer aparelho) + código de 6 dígitos.
+# No projeto remoto, copie o conteúdo em Authentication → Emails → Templates (docs/adr/0013).
+[auth.email.template.magic_link]
+subject = "Seu acesso ao Margem"
+content_path = "./supabase/templates/magic_link.html"
+
+[auth.email.template.confirmation]
+subject = "Bem-vindo ao Margem"
+content_path = "./supabase/templates/confirmation.html"

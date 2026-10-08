@@ -1,0 +1,182 @@
+/*
+ * Tema do Margem para Tailwind CSS v4. Importar DEPOIS de `@import 'tailwindcss'`.
+ * Valores espelham src/tokens.ts (test/tokens.test.ts confere).
+ * Regra de ouro: verde (accent) só quando significa dinheiro a favor do cliente.
+ */
+
+:root {
+  --bg: #f7f8fa;
+  --surface: #ffffff;
+  --surface-raised: #ffffff;
+  --border: #e4e7ec;
+  --text-primary: #0b1220;
+  --text-secondary: #5b6474;
+  --primary: #0b1220;
+  --accent: #0e9f6e;
+  --accent-soft: #e7f7f0;
+  --warning: #d97706;
+  --critical: #dc2626;
+  --info: #2563eb;
+
+  --sombra-sm: 0 1px 2px rgba(16, 24, 40, 0.06);
+  --sombra-md: 0 4px 12px -2px rgba(16, 24, 40, 0.08), 0 2px 4px -2px rgba(16, 24, 40, 0.04);
+  --sombra-lg: 0 16px 32px -8px rgba(16, 24, 40, 0.14);
+  color-scheme: light;
+}
+
+/* Dark: automático pelo sistema, ou forçado com data-theme="dark". */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --bg: #0a0d12;
+    --surface: #12161d;
+    --surface-raised: #1a1f28;
+    --border: #242a35;
+    --text-primary: #f2f4f7;
+    --text-secondary: #98a2b3;
+    --primary: #f2f4f7;
+    --accent: #34d399;
+    --accent-soft: #0f2a21;
+    --warning: #fbbf24;
+    --critical: #f87171;
+    --info: #60a5fa;
+    /* No dark, sombra dá lugar a borda de 1 px mais clara. */
+    --sombra-sm: 0 0 0 1px #242a35;
+    --sombra-md: 0 0 0 1px #2e3542;
+    --sombra-lg: 0 0 0 1px #2e3542;
+    color-scheme: dark;
+  }
+}
+:root[data-theme='dark'] {
+  --bg: #0a0d12;
+  --surface: #12161d;
+  --surface-raised: #1a1f28;
+  --border: #242a35;
+  --text-primary: #f2f4f7;
+  --text-secondary: #98a2b3;
+  --primary: #f2f4f7;
+  --accent: #34d399;
+  --accent-soft: #0f2a21;
+  --warning: #fbbf24;
+  --critical: #f87171;
+  --info: #60a5fa;
+  --sombra-sm: 0 0 0 1px #242a35;
+  --sombra-md: 0 0 0 1px #2e3542;
+  --sombra-lg: 0 0 0 1px #2e3542;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-raised: var(--surface-raised);
+  --color-border: var(--border);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-primary: var(--primary);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-warning: var(--warning);
+  --color-critical: var(--critical);
+  --color-info: var(--info);
+
+  --shadow-sm: var(--sombra-sm);
+  --shadow-md: var(--sombra-md);
+  --shadow-lg: var(--sombra-lg);
+}
+
+/* Sem `inline`: os utilitários leem a variável, e a media query abaixo troca mobile → web. */
+@theme {
+  --font-titulo: 'Plus Jakarta Sans Variable', 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-sans: 'Inter Variable', 'Inter', system-ui, sans-serif;
+
+  /* Escala tipográfica mobile-first; md: sobe para a versão web (media query abaixo). */
+  --text-display: 2rem;
+  --text-display--line-height: 2.5rem;
+  --text-h1: 1.5rem;
+  --text-h1--line-height: 2rem;
+  --text-h2: 1.25rem;
+  --text-h2--line-height: 1.75rem;
+  --text-h3: 1.0625rem;
+  --text-h3--line-height: 1.5rem;
+  --text-body: 1rem;
+  --text-body--line-height: 1.5rem;
+  --text-small: 0.875rem;
+  --text-small--line-height: 1.25rem;
+  --text-caption: 0.75rem;
+  --text-caption--line-height: 1rem;
+  --text-kpi: 1.75rem;
+  --text-kpi--line-height: 2rem;
+
+  --radius-input: 8px;
+  --radius-chip: 8px;
+  --radius-botao: 12px;
+  --radius-card: 16px;
+  --radius-sheet: 24px;
+
+  --ease-margem: cubic-bezier(0.2, 0, 0, 1);
+  /* Entrada de elementos: opacidade 0→1, y 8→0, 200 ms (doc, "Animações"). Cascata via animation-delay. */
+  --animate-entrar: entrar 200ms cubic-bezier(0.2, 0, 0, 1) both;
+  --container-conteudo: 1280px;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --text-display: 3rem;
+    --text-display--line-height: 3.5rem;
+    --text-h1: 2rem;
+    --text-h1--line-height: 2.5rem;
+    --text-h2: 1.5rem;
+    --text-h2--line-height: 2rem;
+    --text-h3: 1.125rem;
+    --text-h3--line-height: 1.625rem;
+    --text-kpi: 2.25rem;
+    --text-kpi--line-height: 2.5rem;
+  }
+}
+
+@layer base {
+  body {
+    background: var(--bg);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+  }
+  h1,
+  h2,
+  h3,
+  .font-titulo {
+    font-family: var(--font-titulo);
+  }
+  /* Números e preços: colunas alinham sem pular. */
+  .numeros {
+    font-variant-numeric: tabular-nums;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+/* Check do chip entra com escala 0 → 1. */
+@keyframes chip-check {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes entrar {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

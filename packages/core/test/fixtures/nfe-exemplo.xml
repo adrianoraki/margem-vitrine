@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- NF-e fictícia para teste: CNPJs de exemplo, sem dado de loja real. -->
+<nfeProc xmlns="http://www.portalfiscal.inf.br/nfe" versao="4.00">
+  <NFe xmlns="http://www.portalfiscal.inf.br/nfe">
+    <infNFe Id="NFe25260911222333000181550010000001231000001234" versao="4.00">
+      <ide><cUF>25</cUF><mod>55</mod><serie>1</serie><nNF>123</nNF><dhEmi>2026-09-20T10:32:11-03:00</dhEmi></ide>
+      <emit>
+        <CNPJ>11222333000181</CNPJ><xNome>CEREALISTA EXEMPLO LTDA</xNome>
+        <enderEmit><xMun>CAMPINA GRANDE</xMun><UF>PB</UF></enderEmit>
+      </emit>
+      <dest><CNPJ>06990590000123</CNPJ><xNome>ATACADO EXEMPLO LTDA</xNome><email>compras@exemplo.com.br</email></dest>
+      <det nItem="1">
+        <prod>
+          <cProd>001</cProd><cEAN>07891234567895</cEAN><xProd>ARROZ BRANCO TIPO 1 5KG</xProd><NCM>10063021</NCM>
+          <CFOP>5102</CFOP><uCom>FD</uCom><qCom>10.0000</qCom><vUnCom>25.5000000000</vUnCom><vProd>255.00</vProd>
+        </prod>
+      </det>
+      <det nItem="2">
+        <prod>
+          <cProd>002</cProd><cEAN>SEM GTIN</cEAN><xProd>FEIJAO CARIOCA 1KG</xProd><NCM>07133399</NCM>
+          <CFOP>5102</CFOP><uCom>PCT</uCom><qCom>12</qCom><vUnCom>7.9</vUnCom><vProd>94.80</vProd>
+        </prod>
+      </det>
+      <total><ICMSTot><vProd>349.80</vProd><vNF>349.80</vNF></ICMSTot></total>
+    </infNFe>
+  </NFe>
+  <protNFe versao="4.00"><infProt><chNFe>25260911222333000181550010000001231000001234</chNFe><cStat>100</cStat></infProt></protNFe>
+</nfeProc>

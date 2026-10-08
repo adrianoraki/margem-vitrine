@@ -1,0 +1,17 @@
+@import 'tailwindcss';
+@import '@margem/ui/theme.css';
+
+/* Componentes do pacote ui usam classes Tailwind: o scanner precisa enxergá-los. */
+@source '../../../../packages/ui/src';
+
+@layer components {
+  /* Grade pontilhada de fundo, esmaecendo para baixo. Decorativa, nunca atrás de números. */
+  .fundo-grade {
+    background-image: radial-gradient(
+      color-mix(in oklab, currentColor 22%, transparent) 1px,
+      transparent 1px
+    );
+    background-size: 22px 22px;
+    mask-image: radial-gradient(ellipse 80% 70% at 50% 0%, #000 40%, transparent 100%);
+  }
+}
