@@ -19,8 +19,8 @@
     "gen:types": "supabase gen types typescript --project-id \"$SUPABASE_PROJECT_ID\" --schema core,licita,compras > src/database.types.ts"
   },
   "dependencies": {
-    "@supabase/supabase-js": "^2.117.2",
-    "fast-xml-parser": "^5.11.1",
+    "@supabase/supabase-js": "^2.117.3",
+    "fast-xml-parser": "^5.11.2",
     "zod": "^4.6.5"
   },
   "devDependencies": {
